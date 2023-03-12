@@ -1,12 +1,12 @@
 import React, {FC} from 'react';
-import classes from './Loader.module.css';
+import './Loader.css';
 
 const Loader: FC = () => {
     return (
-        <div className={classes.loaderContainer}>
-            <div className={classes.wrapper}>
-                <p className={classes.text}>Loading...</p>
-                <div className={classes.loader}>
+        <div className="loader-container">
+            <div className="loader-wrapper">
+                <p className="loader-text">Loading...</p>
+                <div className="loader">
                 </div>
             </div>
         </div>

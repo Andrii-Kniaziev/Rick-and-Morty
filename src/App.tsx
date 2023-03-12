@@ -1,7 +1,6 @@
 import React from 'react';
 import './styles/App.css';
-import Input from "./components/UI/Input/Input";
-import {IoIosSearch} from "react-icons/io";
+import CharacterList from "./components/CharacterList";
 
 function App() {
     return (
@@ -10,7 +9,7 @@ function App() {
                  className="App-logo"
                  alt="logo"
             />
-            <Input icon={IoIosSearch} placeholder="Filter by name"/>
+            <CharacterList/>
         </div>
     );
 }

@@ -4,11 +4,11 @@
     margin-top: 50px;
 }
 
-.wrapper {
+.loader-wrapper {
     position: relative;
 }
 
-.text {
+.loader-text {
     position: absolute;
     top: 35px;
     left: 15px;
