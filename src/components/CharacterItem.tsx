@@ -14,8 +14,10 @@ const CharacterItem: FC<CharacterItemProps> = ({character}) => {
                      alt={character.name}
                 />
             </div>
-            {character.name}
-            {character.species}
+            <div className="gallery-item__info">
+                <p>{character.name}</p>
+                <p>{character.species}</p>
+            </div>
         </div>
     );
 };
