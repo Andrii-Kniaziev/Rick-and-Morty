@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {IoIosSearch} from "react-icons/io";
 import Input from "./UI/Input/Input";
 import {ICharacter} from "../types/types";
@@ -9,6 +9,10 @@ import CharacterItem from "./CharacterItem";
 const CharacterList = () => {
     const [characters, setCharacters] = useState<ICharacter[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [query, setQuery] = useState<string>('');
+    const searchedCharacters = useMemo<ICharacter[]>(() => {
+        return characters.filter(character => character.name.toLowerCase().includes(query.toLowerCase()));
+    }, [characters, query]);
 
     function sleep(miliseconds: number) {
         let currentTime = new Date().getTime();
@@ -32,6 +36,10 @@ const CharacterList = () => {
             .finally(() => setIsLoading(false));
     }
 
+    function handleQueryChange(event: React.ChangeEvent<HTMLInputElement>) {
+        setQuery(event.target.value);
+    }
+
     if (isLoading) {
         return (
             <Loader/>
@@ -40,9 +48,9 @@ const CharacterList = () => {
 
     return (
         <div>
-            <Input icon={IoIosSearch} placeholder="Filter by name"/>
+            <Input icon={IoIosSearch} placeholder="Filter by name" onChange={handleQueryChange}/>
             <div className="gallery">
-                {characters.map(character => <CharacterItem character={character}/>)}
+                {searchedCharacters.map(character => <CharacterItem character={character}/>)}
             </div>
         </div>
     );
