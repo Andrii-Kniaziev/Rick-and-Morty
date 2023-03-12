@@ -1,16 +1,18 @@
 import React from 'react';
 import './styles/App.css';
-import CharacterList from "./components/CharacterList";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Characters from "./pages/Characters";
 
 function App() {
     return (
-        <div className="App">
-            <img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Rick_and_Morty.svg'
-                 className="App-logo"
-                 alt="logo"
-            />
-            <CharacterList/>
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Characters/>}/>
+                <Route path="/characters" element={<Characters/>}/>
+                <Route path="/characters/:id" element={<Characters/>}/>
+                <Route path="*" element={<Characters/>}/>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
