@@ -1,0 +1,36 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.wrapper {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    color: limegreen;
+}
+
+.loader {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px dashed teal;
+    animation: rotate 3s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
