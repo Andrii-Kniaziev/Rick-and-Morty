@@ -9,7 +9,7 @@
 }
 
 .button-icon {
-    vertical-align: middle;
+    margin: 0 5px -2px 0;
 }
 
 .button:hover {
