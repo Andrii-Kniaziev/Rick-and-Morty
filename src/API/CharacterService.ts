@@ -10,4 +10,9 @@ export default class CharacterService {
             .get<ICharacter[]>(`https://rickandmortyapi.com/api/character/${portion.join(',')}`);
 
     }
+
+    static getCharacter(id: string | undefined) {
+        return axios
+            .get<ICharacter>(`https://rickandmortyapi.com/api/character/${id}`);
+    }
 }

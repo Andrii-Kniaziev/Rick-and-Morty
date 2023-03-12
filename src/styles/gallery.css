@@ -11,6 +11,7 @@
     box-shadow: 1px 2px 4px 1px lightgrey;
     border-radius: 4px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .gallery-item__info {
