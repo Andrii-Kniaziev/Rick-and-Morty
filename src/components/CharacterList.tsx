@@ -14,13 +14,6 @@ const CharacterList = () => {
         return characters.filter(character => character.name.toLowerCase().includes(query.toLowerCase()));
     }, [characters, query]);
 
-    function sleep(miliseconds: number) {
-        let currentTime = new Date().getTime();
-
-        while (currentTime + miliseconds >= new Date().getTime()) {
-        }
-    }
-
     useEffect(() => {
         fetchCharacters();
     }, []);
@@ -28,10 +21,7 @@ const CharacterList = () => {
     function fetchCharacters() {
         setIsLoading(true);
         CharacterService.getCharacters()
-            .then(r => {
-                sleep(1000);
-                setCharacters(r.data.sort((c1, c2) => c1.name.localeCompare(c2.name)))
-            })
+            .then(r => setCharacters(r.data.sort((c1, c2) => c1.name.localeCompare(c2.name))))
             .catch(e => alert(e))
             .finally(() => setIsLoading(false));
     }
