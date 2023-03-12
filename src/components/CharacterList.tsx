@@ -40,7 +40,7 @@ const CharacterList = () => {
         <div>
             <Input icon={IoIosSearch} placeholder="Filter by name" onChange={handleQueryChange}/>
             <div className="gallery">
-                {searchedCharacters.map(character => <CharacterItem character={character}/>)}
+                {searchedCharacters.map(character => <CharacterItem key={character.id} character={character}/>)}
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 @import url('base.css');
 @import url('gallery.css');
+@import url('CharacterPage.css');
 
 @media screen and (max-width: 1200px) {
     .App {

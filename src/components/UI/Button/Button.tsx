@@ -5,17 +5,17 @@ import './Button.css'
 interface ButtonWithIconProps {
     icon?: ReactElement;
     text: string;
-    onClick: MouseEventHandler<HTMLButtonElement>;
+    onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Button: FC<ButtonWithIconProps> = ({ icon, text, onClick }) => (
     <button onClick={onClick} className="button">
-        {text}
         {icon && (
             <IconContext.Provider value={{ className: 'button-icon' }}>
                 {icon}
             </IconContext.Provider>
         )}
+        {text}
     </button>
 );
 
