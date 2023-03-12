@@ -1,6 +1,6 @@
 import React, {InputHTMLAttributes, FC} from "react";
 import {IconType} from "react-icons";
-import"./Input.css";
+import "./Input.css";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     icon?: IconType;

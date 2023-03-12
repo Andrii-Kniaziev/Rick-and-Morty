@@ -18,22 +18,31 @@ const CharacterList = () => {
     }
 
     useEffect(() => {
+        fetchCharacters();
+    }, []);
+
+    function fetchCharacters() {
         setIsLoading(true);
         CharacterService.getCharacters()
             .then(r => {
-                sleep(2000);
-                setCharacters(r.data)
+                sleep(1000);
+                setCharacters(r.data.sort((c1, c2) => c1.name.localeCompare(c2.name)))
             })
             .catch(e => alert(e))
             .finally(() => setIsLoading(false));
-    }, [])
+    }
+
+    if (isLoading) {
+        return (
+            <Loader/>
+        );
+    }
 
     return (
         <div>
             <Input icon={IoIosSearch} placeholder="Filter by name"/>
-            {isLoading && <Loader/>}
             <div className="gallery">
-                {!isLoading && characters.map(c => <CharacterItem character={c}/>)}
+                {characters.map(character => <CharacterItem character={character}/>)}
             </div>
         </div>
     );

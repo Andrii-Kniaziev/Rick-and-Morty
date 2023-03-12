@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.App {
+    text-align: center;
+    width: 1000px;
+}
+
+.App-logo {
+    width: 500px;
+    pointer-events: none;
+    margin-top: 30px;
+}
