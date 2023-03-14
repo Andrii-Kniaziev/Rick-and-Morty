@@ -37,10 +37,6 @@
     font-size: small;
 }
 
-.gallery-item__info p {
-    font-family: Arial, sans-serif;
-}
-
 .gallery-image {
     border-radius: 4px;
     width: 100%;
