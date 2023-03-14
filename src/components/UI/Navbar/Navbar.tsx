@@ -1,15 +1,29 @@
-import React, {FC} from 'react';
+import React, {FC, useContext, useState} from 'react';
 import {Link} from "react-router-dom";
-import Button from "../Button/Button";
+import Button, {ButtonVariant} from "../Button/Button";
 import {HiArrowLeft} from "react-icons/hi";
 import './Navbar.css';
+import {SlLogout} from "react-icons/sl";
+import {NavbarButtonsContext} from "../../../context/context";
 
 const Navbar: FC = () => {
+    const {isBackButtonShown, setIsBackButtonShown} = useContext(NavbarButtonsContext);
+
     return (
         <div className="navbar">
-            <Link to="/characters">
-                <Button icon={<HiArrowLeft />} text="GO BACK" />
-            </Link>
+            {
+                isBackButtonShown &&
+              <Link to="/characters">
+                <Button icon={<HiArrowLeft/>}
+                        text="GO BACK"
+                        buttonVariant={ButtonVariant.NEUTRAL}
+                        onClick={() => setIsBackButtonShown(false)}
+                />
+              </Link>
+            }
+            <div>
+                <Button icon={<SlLogout/>} text="LOG OUT" buttonVariant={ButtonVariant.CLASSIC}/>
+            </div>
         </div>
     );
 };

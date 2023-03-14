@@ -1,11 +1,9 @@
 .button {
-    padding: 5px;
+    padding: 5px 15px;
     font-size: 14px;
     background: transparent;
     border: none;
     cursor: pointer;
-    width: 150px;
-    margin: 30px 0;
 }
 
 .button-icon {
@@ -13,5 +11,13 @@
 }
 
 .button:hover {
-    transform: scale(1.01);
+    transform: scale(1.05);
+}
+
+.neutral {
+    color: black;
+}
+
+.classic {
+    color: teal;
 }
