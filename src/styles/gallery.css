@@ -37,7 +37,7 @@
     font-size: small;
 }
 
-.gallery-image {
+.gallery-item__image {
     border-radius: 4px;
     width: 100%;
     z-index: 1;
