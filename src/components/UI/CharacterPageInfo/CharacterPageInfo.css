@@ -1,4 +1,21 @@
-.character-data-unit {
-    margin-bottom: 20px;
-    border-bottom: 1px solid gray;
+.character-data__container {
+    width: 350px;
+    margin: 0 0 50px;
+}
+
+.character-data__unit {
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.character-data__unit p:first-child {
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: small;
+}
+
+.character-data__unit p:last-child {
+    margin-bottom: 12px;
+    color: darkgrey;
+    font-size: small;
 }

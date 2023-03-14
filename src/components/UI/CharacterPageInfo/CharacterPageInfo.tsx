@@ -18,10 +18,10 @@ const CharacterPageInfo: FC<CharacterPageInfoProps> = ({character}) => {
     ];
 
     return (
-        <div>
+        <div className="character-data__container">
             {
                 fields.map(field =>
-                    <div key={field[0]} className="character-data-unit">
+                    <div key={field[0]} className="character-data__unit">
                         <p>{field[0]}</p>
                         <p>{field[1] || 'Unknown'}</p>
                     </div>
