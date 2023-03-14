@@ -1,20 +1,23 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useContext, useEffect, useMemo, useState} from 'react';
 import {IoIosSearch} from "react-icons/io";
 import Input from "./UI/Input/Input";
 import {ICharacter} from "../types/types";
 import CharacterService from "../API/CharacterService";
 import Loader from "./UI/Loader/Loader";
 import CharacterItem from "./CharacterItem";
+import {NavbarButtonsContext} from "../context/context";
 
 const CharacterList = () => {
     const [characters, setCharacters] = useState<ICharacter[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [query, setQuery] = useState<string>('');
+    const {isBackButtonShown, setIsBackButtonShown} = useContext(NavbarButtonsContext);
     const searchedCharacters = useMemo<ICharacter[]>(() => {
         return characters.filter(character => character.name.toLowerCase().includes(query.toLowerCase()));
     }, [characters, query]);
 
     useEffect(() => {
+        setIsBackButtonShown(false);
         fetchCharacters();
     }, []);
 
