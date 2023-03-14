@@ -20,9 +20,8 @@ const Button: FC<ButtonWithIconProps> = ({icon, text, buttonVariant, onClick}) =
     switch (buttonVariant) {
         case ButtonVariant.NEUTRAL: variant = ButtonVariant.NEUTRAL; break;
         case ButtonVariant.CLASSIC: variant = ButtonVariant.CLASSIC; break;
+        default: variant = ButtonVariant.NEUTRAL; break;
     }
-
-    console.log(variant)
 
     return (
         <button onClick={onClick} className={`button ${variant}`}>

@@ -17,7 +17,10 @@ const CharacterList = () => {
     }, [characters, query]);
 
     useEffect(() => {
-        setIsBackButtonShown(false);
+        const savedQuery: string | null = localStorage.getItem('characterQuery');
+        if (savedQuery) {
+            setQuery(savedQuery);
+        }
         fetchCharacters();
     }, []);
 
@@ -30,6 +33,7 @@ const CharacterList = () => {
     }
 
     function handleQueryChange(event: React.ChangeEvent<HTMLInputElement>) {
+        localStorage.setItem('characterQuery', event.target.value);
         setQuery(event.target.value);
     }
 
@@ -41,7 +45,11 @@ const CharacterList = () => {
 
     return (
         <div>
-            <Input icon={IoIosSearch} placeholder="Filter by name" onChange={handleQueryChange}/>
+            <Input defaultValue={query}
+                   icon={IoIosSearch}
+                   placeholder="Filter by name"
+                   onChange={handleQueryChange}
+            />
             <div className="gallery">
                 {searchedCharacters.map(character => <CharacterItem key={character.id} character={character}/>)}
             </div>

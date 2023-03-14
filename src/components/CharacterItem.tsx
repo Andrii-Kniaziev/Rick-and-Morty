@@ -13,7 +13,6 @@ const CharacterItem: FC<CharacterItemProps> = ({character}) => {
 
 
     const navigateToCharacter = () => {
-        setIsBackButtonShown(true);
         navigate(`/characters/${character.id}`)
     }
 
