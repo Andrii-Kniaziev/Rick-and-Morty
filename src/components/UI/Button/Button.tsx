@@ -18,19 +18,27 @@ const Button: FC<ButtonWithIconProps> = ({icon, text, buttonVariant, onClick}) =
 
     let variant: string;
     switch (buttonVariant) {
-        case ButtonVariant.NEUTRAL: variant = ButtonVariant.NEUTRAL; break;
-        case ButtonVariant.CLASSIC: variant = ButtonVariant.CLASSIC; break;
-        default: variant = ButtonVariant.NEUTRAL; break;
+        case ButtonVariant.NEUTRAL:
+            variant = ButtonVariant.NEUTRAL;
+            break;
+        case ButtonVariant.CLASSIC:
+            variant = ButtonVariant.CLASSIC;
+            break;
+        default:
+            variant = ButtonVariant.NEUTRAL;
+            break;
     }
 
     return (
         <button onClick={onClick} className={`button ${variant}`}>
-            {icon && (
-                <IconContext.Provider value={{className: 'button-icon'}}>
-                    {icon}
-                </IconContext.Provider>
-            )}
-            {text}
+            <div>
+                {icon && (
+                    <IconContext.Provider value={{className: 'button-icon'}}>
+                        {icon}
+                    </IconContext.Provider>
+                )}
+                <span>{text}</span>
+            </div>
         </button>
     );
 }
