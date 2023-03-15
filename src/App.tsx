@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './styles/App.scss';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 import Characters from "./pages/Characters";
 import CharacterPage from "./pages/CharacterPage";
 import Navbar from "./components/UI/Navbar/Navbar";
@@ -11,7 +11,7 @@ function App() {
 
     return (
         <NavbarButtonsContext.Provider value={{isBackButtonShown, setIsBackButtonShown}}>
-            <BrowserRouter>
+            <HashRouter>
                 <Navbar/>
                 <Routes>
                     <Route path="/" element={<Characters/>}/>
@@ -19,7 +19,7 @@ function App() {
                     <Route path="/characters/:id" element={<CharacterPage/>}/>
                     <Route path="*" element={<Characters/>}/>
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </NavbarButtonsContext.Provider>
     );
 }
