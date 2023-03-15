@@ -19,3 +19,9 @@
     color: darkgrey;
     font-size: small;
 }
+
+@media screen and (max-width: 480px) {
+    .character-data__container {
+        width: 80vw;
+    }
+}

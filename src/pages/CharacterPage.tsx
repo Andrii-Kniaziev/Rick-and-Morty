@@ -5,6 +5,7 @@ import CharacterService from "../API/CharacterService";
 import {NavbarButtonsContext} from "../context/context";
 import Loader from "../components/UI/Loader/Loader";
 import CharacterPageInfo from "../components/UI/CharacterPageInfo/CharacterPageInfo";
+import '../styles/CharacterPage.css';
 
 type CharacterPageParams = {
     id: string;

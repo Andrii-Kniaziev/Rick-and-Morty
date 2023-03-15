@@ -19,3 +19,13 @@
 .character-page__container h1 {
     font-weight: normal;
 }
+
+@media screen and (max-width: 480px) {
+    .character-page__image {
+        width: 45vw;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
