@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Andrii-Kniaziev.github.io/Rick-and-Morty",
   "name": "rick-and-morty",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +13,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/react-router-dom": "^5.3.3",
     "axios": "^1.3.4",
+    "node-sass": "^7.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
@@ -43,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

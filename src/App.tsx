@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './styles/App.css';
+import './styles/App.scss';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Characters from "./pages/Characters";
 import CharacterPage from "./pages/CharacterPage";

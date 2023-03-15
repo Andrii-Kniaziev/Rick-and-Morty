@@ -1,8 +1,8 @@
-import React, {FC, useContext, useState} from 'react';
+import React, {FC, useContext} from 'react';
 import {Link} from "react-router-dom";
 import Button, {ButtonVariant} from "../Button/Button";
 import {HiArrowLeft} from "react-icons/hi";
-import './Navbar.css';
+import './Navbar.scss';
 import {SlLogout} from "react-icons/sl";
 import {NavbarButtonsContext} from "../../../context/context";
 

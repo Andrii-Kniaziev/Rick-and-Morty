@@ -1,6 +1,6 @@
 import React, {FC, MouseEventHandler, ReactElement} from 'react';
 import {IconContext} from 'react-icons';
-import './Button.css'
+import './Button.scss'
 
 export enum ButtonVariant {
     NEUTRAL = 'neutral',

@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {ICharacter} from "../../../types/types";
-import './CharacterPageInfo.css';
+import './CharacterPageInfo.scss';
 
 interface CharacterPageInfoProps {
     character: ICharacter | null
