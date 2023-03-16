@@ -23,7 +23,7 @@ const CharacterItem: FC<CharacterItemProps> = ({character}) => {
                 />
             </div>
             <div className="gallery-item__info">
-                <p>{character.name}</p>
+                <p title={character.name}>{character.name}</p>
                 <p>{character.species}</p>
             </div>
         </div>

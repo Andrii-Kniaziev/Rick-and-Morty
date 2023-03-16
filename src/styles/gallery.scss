@@ -31,6 +31,11 @@
     font-weight: 600;
     font-size: medium;
     margin-top: revert;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 90%;
+    text-align: left;
 }
 
 .gallery-item__info p:last-of-type {
