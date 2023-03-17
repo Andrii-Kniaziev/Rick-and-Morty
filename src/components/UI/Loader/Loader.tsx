@@ -6,8 +6,7 @@ const Loader: FC = () => {
         <div className="loader-container">
             <div className="loader-wrapper">
                 <p className="loader-text">Loading...</p>
-                <div className="loader">
-                </div>
+                <div className="loader"></div>
             </div>
         </div>
     );

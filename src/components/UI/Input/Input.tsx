@@ -8,11 +8,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: FC<InputProps> = ({icon: Icon, ...rest}) => {
     return (
-        <div>
-            <div className="input-container">
-                <input className="input" {...rest} />
-                {Icon && <div className="input-icon"><Icon/></div>}
-            </div>
+        <div className="input-container">
+            <input className="input" {...rest} />
+            {Icon && <div className="input-icon"><Icon/></div>}
         </div>
     );
 };
