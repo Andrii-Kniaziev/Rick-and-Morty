@@ -1,12 +1,12 @@
 .gallery__container {
     padding: 0 0 30px 0;
-}
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 25px;
-    margin: 20px 0;
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 25px;
+        margin: 20px 0;
+    }
 }
 
 .gallery-item {

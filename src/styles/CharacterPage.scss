@@ -1,15 +1,14 @@
-.character-page__image {
-    margin: 10px 0 10px;
-    border: 5px solid #eaeaea;
-    border-radius: 50%;
-}
-
 .character-page__container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
+    .character-page__image {
+        margin: 10px 0 10px;
+        border: 5px solid #eaeaea;
+        border-radius: 50%;
+    }
+}
 
 .character-page__container > p:last-of-type {
     margin: 35px 0 40px;
