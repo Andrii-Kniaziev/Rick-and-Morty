@@ -11,18 +11,31 @@ interface ButtonWithIconProps {
     icon?: ReactElement;
     text: string;
     onClick?: MouseEventHandler<HTMLButtonElement>;
-    buttonVariant: ButtonVariant
+    buttonVariant: ButtonVariant;
+    isWithBorder?: boolean;
 }
 
-const Button: FC<ButtonWithIconProps> = ({icon, text, buttonVariant, onClick}) => {
+const Button: FC<ButtonWithIconProps> = (
+    {
+        icon,
+        text,
+        buttonVariant,
+        onClick,
+        isWithBorder
+    }
+) => {
+
+    const determineVariant = (isWithBorder: boolean | undefined, variant: ButtonVariant): string => {
+        return isWithBorder ? variant.concat(` ${variant}__border`) : variant;
+    }
 
     let variant: string;
     switch (buttonVariant) {
         case ButtonVariant.NEUTRAL:
-            variant = ButtonVariant.NEUTRAL;
+            variant = determineVariant(isWithBorder, ButtonVariant.NEUTRAL);
             break;
         case ButtonVariant.CLASSIC:
-            variant = ButtonVariant.CLASSIC;
+            variant = determineVariant(isWithBorder, ButtonVariant.CLASSIC);
             break;
         default:
             variant = ButtonVariant.NEUTRAL;

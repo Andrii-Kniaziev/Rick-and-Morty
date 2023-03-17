@@ -1,3 +1,7 @@
+.gallery__container {
+    padding: 0 0 30px 0;
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -12,6 +16,21 @@
     border-radius: 4px;
     overflow: hidden;
     cursor: pointer;
+}
+
+.gallery-item__add-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: darkgrey;
+}
+
+.gallery-item__add-element:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item__add-element:active {
+    transform: scale(1);
 }
 
 .gallery-item__info {
