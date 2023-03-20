@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {AuthContext} from "../context/context";
-import {LoginSocialFacebook, LoginSocialGoogle} from "reactjs-social-login";
-import {FacebookLoginButton, GoogleLoginButton} from "react-social-login-buttons";
+import {LoginSocialGoogle} from "reactjs-social-login";
+import {GoogleLoginButton} from "react-social-login-buttons";
 import {AuthUser} from "../types/types";
 
 const Login = () => {
@@ -10,7 +10,6 @@ const Login = () => {
     const handleAuthResponse = (response: any) => {
         const authUser = response.data;
         authUser.provider = response.provider;
-        //authUser.picture = authUser.provider === 'google' ? authUser.picture : authUser.picture.data.url;
 
         setAuthUser(new AuthUser(authUser.provider, authUser.name, authUser.picture, true));
         localStorage.setItem('authUser', JSON.stringify(authUser));
@@ -24,13 +23,6 @@ const Login = () => {
             >
                 <GoogleLoginButton/>
             </LoginSocialGoogle>
-
-            {/*<LoginSocialFacebook appId="1256828378525400"*/}
-            {/*                     onResolve={handleAuthResponse}*/}
-            {/*                     onReject={(error) => console.error(error)}*/}
-            {/*>*/}
-            {/*    <FacebookLoginButton/>*/}
-            {/*</LoginSocialFacebook>*/}
         </div>
     );
 };
