@@ -10,7 +10,7 @@ const Login = () => {
     const handleAuthResponse = (response: any) => {
         const authUser = response.data;
         authUser.provider = response.provider;
-        authUser.picture = authUser.provider === 'google' ? authUser.picture : authUser.picture.data.url;
+        //authUser.picture = authUser.provider === 'google' ? authUser.picture : authUser.picture.data.url;
 
         setAuthUser(new AuthUser(authUser.provider, authUser.name, authUser.picture, true));
         localStorage.setItem('authUser', JSON.stringify(authUser));
@@ -25,12 +25,12 @@ const Login = () => {
                 <GoogleLoginButton/>
             </LoginSocialGoogle>
 
-            <LoginSocialFacebook appId="1256828378525400"
-                                 onResolve={handleAuthResponse}
-                                 onReject={(error) => console.error(error)}
-            >
-                <FacebookLoginButton/>
-            </LoginSocialFacebook>
+            {/*<LoginSocialFacebook appId="1256828378525400"*/}
+            {/*                     onResolve={handleAuthResponse}*/}
+            {/*                     onReject={(error) => console.error(error)}*/}
+            {/*>*/}
+            {/*    <FacebookLoginButton/>*/}
+            {/*</LoginSocialFacebook>*/}
         </div>
     );
 };
