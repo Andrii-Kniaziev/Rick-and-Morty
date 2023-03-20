@@ -1,4 +1,5 @@
 import {createContext} from "react";
+import {AuthUser} from "../types/types";
 
 export const NavbarButtonsContext = createContext({
     isBackButtonShown: false,
@@ -6,6 +7,6 @@ export const NavbarButtonsContext = createContext({
 });
 
 export const AuthContext = createContext({
-    googleUser: null,
-    setGoogleUser: (value: any) => {}
+    authUser: new AuthUser(),
+    setAuthUser: (value: AuthUser) => {}
 });

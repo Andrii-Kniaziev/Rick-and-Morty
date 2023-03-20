@@ -1,0 +1,36 @@
+.avatar-menu {
+  padding: 12px;
+  position: relative;
+
+  .avatar-menu__user {
+    display: flex;
+    align-items: center;
+
+    .avatar-menu__icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    span {
+      margin-right: 5px;
+    }
+
+    span:hover {
+      cursor: pointer;
+      color: gray;
+      transform: scale(1.01);
+    }
+  }
+
+  .avatar-menu__dropdown {
+    position: absolute;
+    box-shadow: 1px 2px 4px 1px lightgrey;
+    background: white;
+    top: 35px;
+    border-radius: 3px;
+    width: 180px;
+    padding-right: 35px;
+  }
+}

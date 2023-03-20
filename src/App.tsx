@@ -4,24 +4,26 @@ import {HashRouter} from "react-router-dom";
 import Navbar from "./components/UI/Navbar/Navbar";
 import {NavbarButtonsContext, AuthContext} from './context/context';
 import AppRouter from "./components/AppRouter";
+import {AuthUser} from "./types/types";
 
 function App() {
     const [isBackButtonShown, setIsBackButtonShown] = useState<boolean>(false);
-    const [googleUser, setGoogleUser] = useState(null);
+    const [authUser, setAuthUser] = useState(new AuthUser());
 
     useEffect(() => {
-        const user = localStorage.getItem('googleUser')
+        const user = localStorage.getItem('authUser')
 
         if (user) {
-            setGoogleUser(JSON.parse(user));
+            const parsedUser = JSON.parse(user);
+            setAuthUser(new AuthUser(parsedUser.provider, parsedUser.name, parsedUser.picture, true));
         }
     }, []);
 
     return (
-        <AuthContext.Provider value={{googleUser, setGoogleUser}}>
+        <AuthContext.Provider value={{authUser, setAuthUser}}>
             <NavbarButtonsContext.Provider value={{isBackButtonShown, setIsBackButtonShown}}>
                 <HashRouter>
-                    { googleUser && <Navbar/> }
+                    { authUser.isActive && <Navbar/> }
                     <AppRouter/>
                 </HashRouter>
             </NavbarButtonsContext.Provider>

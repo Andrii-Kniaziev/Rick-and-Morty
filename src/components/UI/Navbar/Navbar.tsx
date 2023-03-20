@@ -3,16 +3,17 @@ import {Link} from "react-router-dom";
 import Button, {ButtonVariant} from "../Button/Button";
 import {HiArrowLeft} from "react-icons/hi";
 import './Navbar.scss';
-import {SlLogout} from "react-icons/sl";
 import {AuthContext, NavbarButtonsContext} from "../../../context/context";
+import AvatarMenu from "../AvatarMenu/AvatarMenu";
+import {AuthUser} from "../../../types/types";
 
 const Navbar: FC = () => {
     const {isBackButtonShown, setIsBackButtonShown} = useContext(NavbarButtonsContext);
-    const {setGoogleUser} = useContext(AuthContext);
+    const {authUser, setAuthUser} = useContext(AuthContext);
 
     const logout = () => {
-        localStorage.removeItem('googleUser');
-        setGoogleUser(null);
+        localStorage.removeItem('authUser');
+        setAuthUser(new AuthUser());
     }
 
     return (
@@ -28,10 +29,10 @@ const Navbar: FC = () => {
               </Link>
             }
             <div>
-                <Button icon={<SlLogout/>}
-                        text="LOG OUT"
-                        buttonVariant={ButtonVariant.CLASSIC}
-                        onClick={logout}/>
+                <AvatarMenu userAvatar={authUser.picture}
+                            userName={authUser.name}
+                            onLogout={logout}
+                />
             </div>
         </div>
     );

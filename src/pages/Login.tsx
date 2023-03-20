@@ -1,53 +1,36 @@
-import React, {useContext, useEffect} from 'react';
-import jwtDecode from "jwt-decode";
+import React, {useContext} from 'react';
 import {AuthContext} from "../context/context";
-
-const loadScript = (src: string) =>
-    new Promise<void>((resolve, reject) => {
-        if (document.querySelector(`script[src="${src}"]`)) return resolve()
-        const script = document.createElement('script')
-        script.src = src
-        script.onload = () => resolve()
-        script.onerror = (err) => reject(err)
-        document.body.appendChild(script)
-    });
+import {LoginSocialFacebook, LoginSocialGoogle} from "reactjs-social-login";
+import {FacebookLoginButton, GoogleLoginButton} from "react-social-login-buttons";
+import {AuthUser} from "../types/types";
 
 const Login = () => {
-    const {setGoogleUser} = useContext(AuthContext);
+    const {setAuthUser} = useContext(AuthContext);
 
     const handleAuthResponse = (response: any) => {
-        console.log('Response: ' + response);
-        const userObject = jwtDecode(response.credential);
-        console.log(userObject);
-        setGoogleUser(userObject);
-        localStorage.setItem('googleUser', JSON.stringify(userObject));
+        const authUser = response.data;
+        authUser.provider = response.provider;
+        authUser.picture = authUser.provider === 'google' ? authUser.picture : authUser.picture.data.url;
+
+        setAuthUser(new AuthUser(authUser.provider, authUser.name, authUser.picture, true));
+        localStorage.setItem('authUser', JSON.stringify(authUser));
     };
-
-    useEffect(() => {
-        const src = 'https://accounts.google.com/gsi/client'
-        const id = "275793562999-2ltbnuv5nlkf0vh80g6ir7joo06eqpft.apps.googleusercontent.com"
-
-        loadScript(src)
-            .then(() => {
-                // @ts-ignore
-                const _google = google;
-                console.log('Google: ')
-                console.log(_google)
-                _google.accounts.id.initialize({
-                    client_id: id,
-                    callback: handleAuthResponse,
-                })
-                _google.accounts.id.renderButton(
-                    document.getElementById('sign-in'),
-                    { theme: 'outline', size: 'large' }
-                )
-            })
-            .catch(console.error)
-    }, []);
 
     return (
         <div style={{margin: 30, padding: 30,  border: '1px solid lightgray', borderRadius: 3}}>
-            <div id="sign-in"></div>
+            <LoginSocialGoogle client_id="275793562999-2ltbnuv5nlkf0vh80g6ir7joo06eqpft.apps.googleusercontent.com"
+                               onResolve={handleAuthResponse}
+                               onReject={(error) => console.error(error)}
+            >
+                <GoogleLoginButton/>
+            </LoginSocialGoogle>
+
+            <LoginSocialFacebook appId="1256828378525400"
+                                 onResolve={handleAuthResponse}
+                                 onReject={(error) => console.error(error)}
+            >
+                <FacebookLoginButton/>
+            </LoginSocialFacebook>
         </div>
     );
 };

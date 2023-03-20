@@ -6,11 +6,11 @@ import Login from "../pages/Login";
 import {AuthContext} from "../context/context";
 
 const AppRouter: FC = () => {
-    const {googleUser} = useContext(AuthContext);
+    const {authUser} = useContext(AuthContext);
 
     return (
         <div>
-            {googleUser
+            {authUser.isActive
                 ?
                 <Routes>
                     <Route path="/" element={<Characters/>}/>

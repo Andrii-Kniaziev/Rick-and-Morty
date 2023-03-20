@@ -12,3 +12,22 @@ export interface ICharacter {
 interface IOrigin {
     name: string;
 }
+
+export class AuthUser {
+    provider: string;
+    name: string;
+    picture: string;
+    isActive: boolean;
+
+    constructor(
+        provider: string = '',
+        name: string = '',
+        picture: string = '',
+        isActive: boolean= false
+    ) {
+        this.provider = provider;
+        this.name = name;
+        this.picture = picture;
+        this.isActive = isActive;
+    }
+}
