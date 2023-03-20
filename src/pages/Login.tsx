@@ -3,6 +3,7 @@ import {AuthContext} from "../context/context";
 import {LoginSocialGoogle} from "reactjs-social-login";
 import {GoogleLoginButton} from "react-social-login-buttons";
 import {AuthUser} from "../types/types";
+import '../styles/Login.scss';
 
 const Login = () => {
     const {setAuthUser} = useContext(AuthContext);
@@ -16,7 +17,7 @@ const Login = () => {
     };
 
     return (
-        <div style={{margin: 30, padding: 30,  border: '1px solid lightgray', borderRadius: 3}}>
+        <div className="login-container">
             <LoginSocialGoogle client_id="275793562999-2ltbnuv5nlkf0vh80g6ir7joo06eqpft.apps.googleusercontent.com"
                                onResolve={handleAuthResponse}
                                onReject={(error) => console.error(error)}
